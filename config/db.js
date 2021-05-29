@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 require('dotenv').config()
 
 const connectDB = async () => {
-  console.log('-> pasa')
   try {
     // console.log("-> process env: ", process.env.DB_MONGO);
     await mongoose.connect(process.env.DB_URL, {

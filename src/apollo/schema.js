@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server');
+const { gql } = require("apollo-server");
 
 const typeDefs = gql`
   type Category {
@@ -20,8 +20,40 @@ const typeDefs = gql`
     icon: String
   }
 
+  type Location {
+    type: String
+    coordinates: [Float]
+  }
+
+  type Report {
+    id: ID
+    deviceId: String
+    categoryId: String
+    subcategoryId: String
+    description: String
+    location: Location
+    date_created: String
+  }
+
+  input PriceReportInput {
+    categoryId: String!
+    subcategoryId: String!
+    description: String
+    locationLat: String!
+    locationLng: String!
+    deviceId: String!
+  }
+
   type Query {
+    # Categories
     getCategories: [Category]
+
+    # Reports
+    getReports(deviceId: String!): [Report]
+  }
+
+  type Mutation {
+    addPriceReport(input: PriceReportInput): String
   }
 `;
 
