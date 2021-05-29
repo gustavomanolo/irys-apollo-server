@@ -3,6 +3,9 @@
 
 This is the GraphQL server made with Apollo
 
+## Production server example
+
+https://irys-apollo.herokuapp.com/
 
 ## Environment Variables
 
